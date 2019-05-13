@@ -7,9 +7,11 @@ const headers = {
 
 export const getInitialData = () => {
     return Promise.all([
-        fetchCategories()
-    ]).then(([categories]) => ({
-        categories
+        fetchCategories(),
+        fetchPosts()
+    ]).then(([categories, posts]) => ({
+        categories,
+        posts
     }))
 }
 
@@ -17,4 +19,9 @@ export const fetchCategories = () => {
     return fetch(`${url}/categories`, { headers })
         .then(res => res.json())
         .then(data => data.categories)
+}
+
+export const fetchPosts = () => {
+    return fetch(`${url}/posts`, { headers })
+        .then(res => res.json())
 }
