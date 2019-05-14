@@ -1,4 +1,4 @@
-import { GET_POSTS, GET_POST_BY_ID } from '../utils/constants'
+import { GET_POSTS, GET_POST_BY_ID, ADD_POST, EDIT_POST } from '../utils/constants'
 
 const initialState = {
     data: [],
@@ -19,6 +19,28 @@ const posts = (state = initialState, action) => {
                 isLoading: false,
                 data: action.posts
             }
+        case ADD_POST: {
+                const { post } = action
+                const posts = state.data
+                posts.push(post)
+                return {
+                    ...state,
+                    data: posts
+                }
+            }
+        case EDIT_POST: {
+            const { post } = action
+            const postEdited = state.data.map(item => {
+                if (item.id === post.id) {
+                    return { ...item, ...post}
+                }
+                return item
+            })
+            return {
+                ...state,
+                data: postEdited
+            }
+        }
         default:
             return state
     }

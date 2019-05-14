@@ -5,6 +5,8 @@ import { Switch, Route  } from 'react-router-dom'
 import { handleInitialData } from '../actions/shared'
 import Dashboard from './Dashboard'
 import PostDetail from './PostDetail'
+import PostEdition from './PostEdition'
+import PostNew from './PostNew'
 
 class App extends Component {
     componentDidMount() {
@@ -15,6 +17,10 @@ class App extends Component {
         return (
             <Switch>
               <Route exact path="/" component={Dashboard} />
+              <Route exact path="/posts/edit/:postId" component={PostEdition} />
+              <Route exact path="/posts/edit/:postId" component={PostEdition} />
+              <Route exact path="/posts/new" component={PostNew} />
+              <Route exact path="/categories/:category/posts/new" component={PostNew} />
               <Route exact path="/posts/:postId" component={PostDetail} />
           </Switch>
           )
