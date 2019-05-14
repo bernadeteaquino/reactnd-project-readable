@@ -1,8 +1,10 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Switch, Route  } from 'react-router-dom'
 import { handleInitialData } from '../actions/shared'
 import Dashboard from './Dashboard'
+import PostDetail from './PostDetail'
 
 class App extends Component {
     componentDidMount() {
@@ -11,19 +13,12 @@ class App extends Component {
 
     render() {
         return (
-            <div>
-              {this.props.loading === true
-                ? null
-                : <Dashboard />}
-            </div>
+            <Switch>
+              <Route exact path="/" component={Dashboard} />
+              <Route exact path="/posts/:postId" component={PostDetail} />
+          </Switch>
           )
     }
 }
 
-function mapStateToProps ({ categories }) {
-    return {
-      loading: categories === null
-    }
-  }
-
-export default connect(mapStateToProps)(App)
+export default connect()(App)

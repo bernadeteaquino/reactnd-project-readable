@@ -25,3 +25,13 @@ export const fetchPosts = () => {
     return fetch(`${url}/posts`, { headers })
         .then(res => res.json())
 }
+
+export const fetchPost = (id) => {
+    return fetch(`${url}/posts/${id}`, { headers })
+        .then(res => res.json())
+}
+
+export const fetchPostComments = (postId) => {
+    return fetch(`${url}/posts/${postId}/comments`, { headers })
+        .then(res => res.json())
+}

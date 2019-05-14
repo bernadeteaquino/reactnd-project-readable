@@ -7,11 +7,14 @@ class Dashboard extends Component {
     render() {
         const { categories, posts } = this.props
 
+        if (categories.isLoading === true || posts.isLoading === true ) 
+            return <div/>;
+
         return (
             <div>
                 <h3>Categorias:</h3>
                 <ul>
-                    {categories.map((category) => (
+                    {categories.data.map((category) => (
                         <li key={category.name} >
                             <div>{category.name}</div>
                         </li>
@@ -23,7 +26,7 @@ class Dashboard extends Component {
                     className="close-search"
                     >TODO Adicionar Postagem</Link>
                 <div>
-                    <PostList posts={posts} />
+                    <PostList posts={posts.data} />
                 </div>
             </div>
         )        
@@ -31,9 +34,10 @@ class Dashboard extends Component {
 }
 
 function mapStateToProps ({ categories, posts }) {
+
     return {
-        categories,
-        posts
+        categories: categories,
+        posts: posts
     }
   }
 

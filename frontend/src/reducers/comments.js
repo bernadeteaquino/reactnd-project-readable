@@ -1,4 +1,4 @@
-import { GET_CATEGORIES } from '../utils/constants'
+import { GET_COMMENTS_BY_POST_ID } from '../utils/constants'
 
 const initialState = {
     data: [],
@@ -7,11 +7,11 @@ const initialState = {
 
 const categories = (state = initialState, action) => {
     switch(action.type) {
-        case GET_CATEGORIES:
+        case GET_COMMENTS_BY_POST_ID:
             return {
                 ...state,
                 isLoading: false,
-                data: action.categories
+                data: action.comments
             }
         default:
             return state
