@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import CommentForm from './CommentForm'
-import { handleEditComment, handleDeleteComment } from '../actions/comments'
+import { handleEditComment, handleDeleteComment, handleVoteOnComment } from '../actions/comments'
+import { UP_VOTE, DOWN_VOTE } from '../utils/constants'
+import VoteScore from './VoteScore'
 
 class Comment extends Component {
     state = {
@@ -19,6 +21,16 @@ class Comment extends Component {
 
     deleteComment = () => {
         this.props.dispatch(handleDeleteComment(this.props.comment.id))
+    }
+
+    like = () => {
+        const { dispatch, comment } = this.props
+        dispatch(handleVoteOnComment(comment.id, { option: UP_VOTE }))
+    }
+
+    dislike = () => {
+        const { dispatch, comment } = this.props
+        dispatch(handleVoteOnComment(comment.id, { option: DOWN_VOTE }))
     }
 
     render() {
@@ -45,6 +57,7 @@ class Comment extends Component {
                         </div>
                     )}
                     <div>{id} - {author} - {body} - {timestamp} - {voteScore} - {timestamp}</div>
+                    <VoteScore like={this.like} dislike={this.dislike} />
                 </li>
             </div>
         )

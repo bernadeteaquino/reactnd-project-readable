@@ -56,3 +56,10 @@ export function handleDeleteComment(commentId) {
           .then((comment) => dispatch(deleteComment(comment)))
     }
 }
+
+export function handleVoteOnComment(commentId, option) {
+    return (dispatch) => {
+        return API.voteOnComment(commentId, option)
+          .then((comment) => dispatch(editComment(comment)))
+    }
+}

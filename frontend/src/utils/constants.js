@@ -1,6 +1,9 @@
 const BY_DATE = 'BY_DATE'
 const BY_SCORE = 'BY_SCORE'
 
+const UP_VOTE = 'upVote'
+const DOWN_VOTE = 'downVote'
+
 const ADD_POST = 'ADD_POST'
 const GET_POSTS = 'GET_POSTS'
 const EDIT_POST = 'EDIT_POST'
@@ -14,6 +17,9 @@ const GET_COMMENTS_BY_POST_ID = 'GET_COMMENTS_BY_POST_ID'
 module.exports = {
     BY_DATE,
     BY_SCORE,
+
+    UP_VOTE,
+    DOWN_VOTE,
 
     ADD_POST,
     GET_POSTS,

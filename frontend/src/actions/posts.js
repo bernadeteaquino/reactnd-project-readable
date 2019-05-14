@@ -51,3 +51,10 @@ export function handleAddPost(post) {
             .then(payload => dispatch(addPost(payload)));
     }
 }
+
+export function handleVoteOnPost(postId, option) {
+    return (dispatch) => {
+        return API.voteOnPost(postId, option)
+          .then((post) => dispatch(editPost(post)))
+    }
+}

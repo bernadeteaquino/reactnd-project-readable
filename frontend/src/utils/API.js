@@ -74,3 +74,19 @@ export const deleteComment = (commentId) => {
         headers: { ...headers, 'Content-Type': 'application/json' }            
     }).then(res => res.json())    
 }
+
+export const voteOnComment = (commentId, rate) => {
+    return fetch(`${url}/comments/${commentId}`, {
+        method: 'POST',
+        headers: { ...headers, 'Content-Type': 'application/json' },
+        body: JSON.stringify(rate)
+    }).then(res => res.json())    
+}
+
+export const voteOnPost = (postId, rate) => {
+    return fetch(`${url}/posts/${postId}`, {
+            method: 'POST',
+            headers: { ...headers, 'Content-Type': 'application/json' },
+            body: JSON.stringify(rate)
+    }).then(res => res.json())    
+}
