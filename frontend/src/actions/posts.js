@@ -30,8 +30,6 @@ function editPost(post) {
 }
 
 export function handleUpdatePost(post) {
-    console.log("post")
-    console.log(post)
     return (dispatch) => {
         return API.editPost(post)
             .then(payload => dispatch(editPost(payload)));
@@ -70,5 +68,11 @@ export function handleDeletePost(postId) {
     return (dispatch) => {
         return API.deletePost(postId)
           .then((post) => dispatch(deletePost(post)))
+    }
+}
+
+export function handleUpdateCommentCounter(post) {
+    return (dispatch) => {
+        return dispatch(editPost(post))
     }
 }

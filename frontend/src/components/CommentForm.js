@@ -40,7 +40,7 @@ class CommentForm extends Component {
             id: isNewComment ? guidGenerator() : comment.id,
             body,
             author,
-            parentId: isNewComment? post.id : comment.parentId,
+            parentId: post.id,
             timestamp: new Date().getTime(),
             voteScore: isNewComment ? 0 : comment.voteScore
         })
@@ -57,7 +57,7 @@ class CommentForm extends Component {
                             id="body"
                             value={this.state.body || ''}
                             maxLength={500}
-                            onChange={e => this.handleChange(e, "body")}              
+                            onChange={e => this.handleChange(e, "body")}
                             placeholder="Conteúdo da Comentário..."
                             />
                     </div>
@@ -65,9 +65,9 @@ class CommentForm extends Component {
                         <div className="control has-icons-left">
                             <input
                                 className="input"
-                                type="text"            
+                                type="text"
                                 id="author"
-                                value={this.state.author || ''}              
+                                value={this.state.author || ''}
                                 onChange={e => this.handleChange(e, "author")}
                                 placeholder="Autor..."
                                 />
