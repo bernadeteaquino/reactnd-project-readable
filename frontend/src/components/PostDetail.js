@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleGetPostById } from '../actions/posts'
-import { handleGetCommentsByPostId } from '../actions/comments'
+import { handleGetCommentsByPostId, handleAddComment } from '../actions/comments'
 import Post from './Post'
 import CommentList from './CommentList'
+import CommentForm from './CommentForm'
 import { getCommentsOrderVoteScore } from '../utils/Util'
 
 class PostDetail extends Component {
@@ -14,13 +15,20 @@ class PostDetail extends Component {
         this.props.dispatch(handleGetCommentsByPostId(postId))
     }
 
+    addComment = comment => {
+        const { postId } = this.props.match.params
+        this.props.dispatch(handleAddComment(comment))
+        this.props.dispatch(handleGetCommentsByPostId(postId))
+    }
+
     render() {
         const { post, comments } = this.props
 
         return (
             <div>POST detail 
                 <Post key={post.id} post={post} />
-                <CommentList comments={comments}/>
+                <CommentForm post={post} submitComment={this.addComment}/>
+                <CommentList comments={comments} />
             </div>
         )
     }
