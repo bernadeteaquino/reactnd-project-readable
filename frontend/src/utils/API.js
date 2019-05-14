@@ -57,7 +57,7 @@ export const addComment = (comment) => {
         method: 'POST',
         headers: { ...headers, 'Content-Type': 'application/json' },
         body: JSON.stringify(comment)
-    }).then(res => res.json())    
+    }).then(res => res.json())
 }
 
 export const editComment = (comment) => {
@@ -65,13 +65,13 @@ export const editComment = (comment) => {
         method: 'PUT',
         headers: { ...headers, 'Content-Type': 'application/json' },
         body: JSON.stringify(comment)
-    }).then(res => res.json())    
+    }).then(res => res.json())
 }
 
 export const deleteComment = (commentId) => {
     return fetch(`${url}/comments/${commentId}`, {
         method: 'DELETE',
-        headers: { ...headers, 'Content-Type': 'application/json' }            
+        headers: { ...headers, 'Content-Type': 'application/json' }
     }).then(res => res.json())    
 }
 
@@ -80,13 +80,20 @@ export const voteOnComment = (commentId, rate) => {
         method: 'POST',
         headers: { ...headers, 'Content-Type': 'application/json' },
         body: JSON.stringify(rate)
-    }).then(res => res.json())    
+    }).then(res => res.json())
 }
 
 export const voteOnPost = (postId, rate) => {
     return fetch(`${url}/posts/${postId}`, {
-            method: 'POST',
-            headers: { ...headers, 'Content-Type': 'application/json' },
-            body: JSON.stringify(rate)
-    }).then(res => res.json())    
+        method: 'POST',
+        headers: { ...headers, 'Content-Type': 'application/json' },
+        body: JSON.stringify(rate)
+    }).then(res => res.json())
+}
+
+export const deletePost = (postId) => {
+    return fetch(`${url}/posts/${postId}`, {
+        method: 'DELETE',
+        headers: { ...headers, 'Content-Type': 'application/json' }
+    }).then(res => res.json())
 }

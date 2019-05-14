@@ -1,4 +1,4 @@
-import { GET_POSTS, GET_POST_BY_ID, ADD_POST, EDIT_POST } from '../utils/constants'
+import { GET_POSTS, GET_POST_BY_ID, ADD_POST, EDIT_POST, DELETE_POST } from '../utils/constants'
 
 const initialState = {
     data: [],
@@ -39,6 +39,16 @@ const posts = (state = initialState, action) => {
             return {
                 ...state,
                 data: postEdited
+            }
+        }
+        case DELETE_POST: {
+            const { post } = action
+            const posts = state.data
+            const newPosts = posts.filter(item => 
+                item.id !== post.id && post.deleted)
+            return {
+                ...state,
+                data: newPosts
             }
         }
         default:

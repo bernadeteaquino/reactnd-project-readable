@@ -7,6 +7,7 @@ const DOWN_VOTE = 'downVote'
 const ADD_POST = 'ADD_POST'
 const GET_POSTS = 'GET_POSTS'
 const EDIT_POST = 'EDIT_POST'
+const DELETE_POST = 'DELETE_POST'
 const ADD_COMMENT = 'ADD_COMMENT'
 const EDIT_COMMENT = 'EDIT_COMMENT'
 const DELETE_COMMENT = 'DELETE_COMMENT'
@@ -24,6 +25,7 @@ module.exports = {
     ADD_POST,
     GET_POSTS,
     EDIT_POST,
+    DELETE_POST,
     ADD_COMMENT,
     EDIT_COMMENT,
     DELETE_COMMENT,

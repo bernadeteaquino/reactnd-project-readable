@@ -1,4 +1,4 @@
-import { GET_POSTS, GET_POST_BY_ID, EDIT_POST, ADD_POST } from '../utils/constants'
+import { GET_POSTS, GET_POST_BY_ID, EDIT_POST, ADD_POST, DELETE_POST } from '../utils/constants'
 import * as API from '../utils/API'
 
 export default function getPosts(posts) {
@@ -56,5 +56,19 @@ export function handleVoteOnPost(postId, option) {
     return (dispatch) => {
         return API.voteOnPost(postId, option)
           .then((post) => dispatch(editPost(post)))
+    }
+}
+
+function deletePost(post) {
+    return {
+        type: DELETE_POST,
+        post
+    }
+}
+
+export function handleDeletePost(postId) {
+    return (dispatch) => {
+        return API.deletePost(postId)
+          .then((post) => dispatch(deletePost(post)))
     }
 }
