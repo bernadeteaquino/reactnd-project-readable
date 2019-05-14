@@ -6,7 +6,7 @@ class PostForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            category: 'react',
+            category: '',
             title: '',
             body: '',
             author: ''
@@ -14,11 +14,11 @@ class PostForm extends Component {
     }
     
     componentDidMount() {
-        const { post } = this.props
+        const { post, defaultCategory } = this.props
         const { category, title, body, author } = post;
-        
+
         this.setState({
-            category,
+            category: category ? category : defaultCategory,
             title,
             body,
             author
@@ -41,6 +41,7 @@ class PostForm extends Component {
         const { category, title, author, body } = this.state
         const { submitPost, post } = this.props
         const isNewPost =  post.id === ''
+        
         submitPost({
             id: isNewPost ? guidGenerator() : post.id,
             category,
@@ -116,7 +117,7 @@ class PostForm extends Component {
 PostForm.defaultProps = {
     post: {
       id: '',
-      category: 'react',
+      category: '',
       title: '',
       body: '',
       author: '',

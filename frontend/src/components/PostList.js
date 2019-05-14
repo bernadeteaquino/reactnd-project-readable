@@ -5,7 +5,6 @@ import { getPostsOrderBy } from '../utils/Util'
 import { BY_SCORE } from '../utils/constants'
 
 class PostList extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -16,7 +15,7 @@ class PostList extends Component {
     changeOrderBy = e => {
         this.setState({
             order: e.target.value
-        })      
+        })
     }
     
     render() {
@@ -26,7 +25,10 @@ class PostList extends Component {
         
         return (
             <div>
-                <OrderBy changeHandler={this.changeOrderBy} order={order} />
+                {posts.length > 0 && (
+                    <OrderBy changeHandler={this.changeOrderBy} order={order} />
+                )}
+
                 <ul>
                     {posts.length > 0 ? postsOrderBy.map((post) => (
                       <Post key={post.id} post={post} />

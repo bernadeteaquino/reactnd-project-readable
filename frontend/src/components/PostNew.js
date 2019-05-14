@@ -21,7 +21,7 @@ class PostNew extends Component {
 
     render() {
         const { finished } = this.state
-        const { categories } = this.props
+        const { categories, defaultCategory } = this.props
 
         if (finished) 
             return <Redirect to="/" />
@@ -31,6 +31,7 @@ class PostNew extends Component {
         return (
             <PostForm 
                 categories={categories}
+                defaultCategory={defaultCategory}
                 submitPost={this.createPost}/>
         )
     }
@@ -47,7 +48,8 @@ function mapStateToProps({ categories }, { match }) {
             ? categories.data.filter(
                 category => category.name === match.params.category
             )
-            : categories.data
+            : categories.data,
+        defaultCategory: match.params.category ? match.params.category : 'react' 
     };
 }
 

@@ -7,6 +7,7 @@ import Dashboard from './Dashboard'
 import PostDetail from './PostDetail'
 import PostEdition from './PostEdition'
 import PostNew from './PostNew'
+import PostListByCategory from './PostListByCategory'
 
 class App extends Component {
     componentDidMount() {
@@ -21,6 +22,7 @@ class App extends Component {
               <Route exact path="/posts/edit/:postId" component={PostEdition} />
               <Route exact path="/posts/new" component={PostNew} />
               <Route exact path="/categories/:category/posts/new" component={PostNew} />
+              <Route exact path="/categories/:category" component={PostListByCategory} />
               <Route exact path="/posts/:postId" component={PostDetail} />
           </Switch>
           )

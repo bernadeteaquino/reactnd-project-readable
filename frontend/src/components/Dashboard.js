@@ -16,15 +16,18 @@ class Dashboard extends Component {
                 <ul>
                     {categories.data.map((category) => (
                         <li key={category.name} >
-                            <div>{category.name}</div>
+                            <div>
+                                <Link className="button is-info" to={`/categories/${category.name}`}>
+                                    {category.name}
+                                </Link>
+                            </div>
                         </li>
                     ))}
                 </ul>
                 <h3>Posts:</h3>
                 <Link 
-                    to="/"
-                    className="close-search"
-                    >TODO Adicionar Postagem</Link>
+                    to="/posts/new"
+                    >Adicionar Postagem</Link>
                 <div>
                     <PostList posts={posts.data} />
                 </div>
