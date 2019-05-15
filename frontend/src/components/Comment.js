@@ -55,14 +55,14 @@ class Comment extends Component {
                         <button
                             type="button" 
                             className="btn"
-                            onClick={this.deleteComment}>
-                            Apagar
+                            onClick={this.actvateEdtion}>
+                            Editar
                         </button>
                         <button
                             type="button" 
                             className="btn"
-                            onClick={this.actvateEdtion}>
-                            Editar
+                            onClick={this.deleteComment}>
+                            Apagar
                         </button>
                     </div>
                 )}
