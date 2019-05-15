@@ -7,11 +7,15 @@ const initialState = {
 
 const posts = (state = initialState, action) => {
     switch(action.type) {
-        case GET_POST_BY_ID:
-            return {
-                ...state, 
-                isLoading: false,
-                data: [action.post]
+        case GET_POST_BY_ID: {
+            const { post } = action
+                const posts = state.data
+                posts.push(post)
+                return {
+                    ...state,
+                    isLoading: false,
+                    data: posts
+                }
             }
         case GET_POSTS:
             return {
