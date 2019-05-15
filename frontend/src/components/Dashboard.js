@@ -16,7 +16,7 @@ class Dashboard extends Component {
                 <div className="categories">
                     {categories.data.map((category) => (
                         <div key={category.name} >
-                            <Link className="btn" to={`/categories/${category.name}`}>
+                            <Link className="btn" to={`/${category.name}`}>
                                 {category.name}
                             </Link>
                         </div>

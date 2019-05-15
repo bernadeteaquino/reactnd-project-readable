@@ -30,7 +30,7 @@ class Post extends Component {
         return (
             <div className="post">
                 {forList && (
-                    <Link className="btn" to={`/posts/${id}`}>
+                    <Link className="btn" to={`/${category}/${id}`}>
                         Detalhar
                     </Link>
                 )}
