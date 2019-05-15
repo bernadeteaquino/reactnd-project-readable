@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import { handleGetPostById, handleUpdateCommentCounter } from '../actions/posts'
 import { handleGetCommentsByPostId, handleAddComment } from '../actions/comments'
 import Post from './Post'
@@ -26,6 +27,9 @@ class PostDetail extends Component {
 
     render() {
         const { post, comments } = this.props
+
+        if (post == null) 
+            return <Redirect to="/error" />
 
         return (
             <div className="post-detail">

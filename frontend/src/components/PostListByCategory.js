@@ -12,7 +12,7 @@ class PostListByCategory extends Component {
         return (
             <div>
                 <Categories categories={categories}/>
-                <h3 className="by-category">Posts da categoria: <span>{category}</span></h3>
+                <h3 className="by-category">Postagens da categoria: <span>{category}</span></h3>
                 <div className="actions">
                     <Link className="btn" to="/">
                         Voltar

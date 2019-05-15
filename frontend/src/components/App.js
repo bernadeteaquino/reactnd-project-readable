@@ -8,6 +8,7 @@ import PostDetail from './PostDetail'
 import PostEdition from './PostEdition'
 import PostNew from './PostNew'
 import PostListByCategory from './PostListByCategory'
+import NotFoundError from './NotFoundError'
 
 class App extends Component {
     componentDidMount() {
@@ -23,6 +24,7 @@ class App extends Component {
               <Route exact path="/posts/new" component={PostNew} />
               <Route exact path="/categories/:category/posts/new" component={PostNew} />
               <Route exact path="/:category/:postId" component={PostDetail} />
+              <Route exact path="/error" component={NotFoundError} />
               <Route exact path="/:category" component={PostListByCategory} />
           </Switch>
           )

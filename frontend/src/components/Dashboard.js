@@ -15,7 +15,7 @@ class Dashboard extends Component {
             <div>
                 <Categories categories={categories}/>
                 <div>
-                    <h3>Posts:</h3>
+                    <h3>Lista de postagens:</h3>
                     <Link
                         className="btn"
                         to="/posts/new"
