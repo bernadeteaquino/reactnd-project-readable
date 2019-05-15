@@ -44,6 +44,10 @@ class CommentForm extends Component {
             timestamp: new Date().getTime(),
             voteScore: isNewComment ? 0 : comment.voteScore
         })
+        this.setState({
+            body: '',
+            author: ''
+        })
     }
 
     render() {

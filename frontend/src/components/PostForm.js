@@ -60,14 +60,14 @@ class PostForm extends Component {
 
         return (
             <div className="post-form">
-                <h3>
+                <div>
                     {isNewPost && (
                         <h3>Adicionar Postagem</h3>
                     )}
                     {!isNewPost && (
                         <h3>Editar Postagem</h3>
                     )}
-                </h3>
+                </div>
                 <form onSubmit={event => this.handleSubmit(event)}>
                     <span className="title">Categoria:</span>
                     <select value={this.state.category || ''} onChange={e => this.handleChange(e, "category")}>

@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import VoteScore from './VoteScore'
 import { handleVoteOnPost, handleDeletePost } from '../actions/posts'
 import { UP_VOTE, DOWN_VOTE } from '../utils/constants'
 import { formatDate } from '../utils/Util'
 
 class Post extends Component {
+    state = {
+        redirect: false
+    }
 
     like = () => {
         const { dispatch, post } = this.props
@@ -21,11 +24,17 @@ class Post extends Component {
     deletePost = () => {
         const { dispatch, post } = this.props
         dispatch(handleDeletePost(post.id))
+        this.setState({ redirect: true })
     }
 
     render() {
+        const { redirect } = this.state;
         const { post, forList } = this.props
         const { id, category, title, author, body, timestamp, commentCount, voteScore } = post
+        
+        if (!forList && redirect) {
+            return <Redirect to="/" />
+        }
 
         return (
             <div className="post">

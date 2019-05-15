@@ -8,9 +8,17 @@ const initialState = {
 const posts = (state = initialState, action) => {
     switch(action.type) {
         case GET_POST_BY_ID: {
-            const { post } = action
+                const { post } = action
                 const posts = state.data
-                posts.push(post)
+                let exist = false
+                posts.forEach(item => {
+                    if (item.id === post.id) {
+                        exist = true
+                    }
+                })
+                if (!exist) {
+                    posts.push(post)
+                }
                 return {
                     ...state,
                     isLoading: false,
