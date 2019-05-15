@@ -12,7 +12,7 @@ $ git clone https://github.com/bernadeteaquino/reactnd-project-readable.git
 ```
 $ cd api-server
 $ npm install
-$ npm start
+$ node server
 ```
 
 3. Iniciar o projeto cliente:
