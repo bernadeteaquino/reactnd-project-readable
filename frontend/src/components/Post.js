@@ -29,6 +29,9 @@ class Post extends Component {
 
         return (
             <div className="post">
+                <Link className="btn" to={`/posts/${id}`}>
+                    Detalhar
+                </Link>
                 <Link className="btn" to={`/posts/edit/${id}`}>
                     Editar
                 </Link>

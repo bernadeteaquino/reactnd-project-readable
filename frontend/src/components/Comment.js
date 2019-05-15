@@ -16,6 +16,10 @@ class Comment extends Component {
         this.setState({ isEditing: true });
     }
 
+    deactvateEdtion = () => {
+        this.setState({ isEditing: false });
+    }
+
     editComment = comment => {
         this.props.dispatch(handleEditComment(comment))
         this.setState({ isEditing: false });
@@ -45,7 +49,7 @@ class Comment extends Component {
 
         return (
             <div key={id}>
-                {isEditing && ( <CommentForm comment={comment} submitComment={this.editComment} post={post}/>)}
+                {isEditing && ( <CommentForm comment={comment} submitComment={this.editComment} post={post} deactvateEdtion={this.deactvateEdtion}/>)}
                 {!isEditing && (
                     <div className="actions">
                         <button

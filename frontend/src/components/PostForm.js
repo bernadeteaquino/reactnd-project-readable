@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { guidGenerator } from '../utils/Util'
 
 class PostForm extends Component {
@@ -98,13 +99,18 @@ class PostForm extends Component {
                         value={this.state.author || ''}
                         onChange={e => this.handleChange(e, "author")}
                         />
-                    <button 
-                        className="btn" 
-                        type="submit" 
-                        disabled={!this.canSubmit()}
-                        >
-                        <span>Postar</span>
-                    </button>
+                    <div className="actions">
+                        <button 
+                            className="btn" 
+                            type="submit" 
+                            disabled={!this.canSubmit()}
+                            >
+                            <span>Postar</span>
+                        </button>
+                        <Link className="btn" to="/">
+                            Cancelar
+                        </Link>
+                    </div>
                 </form>
             </div>
         )

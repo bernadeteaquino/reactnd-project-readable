@@ -47,7 +47,7 @@ class CommentForm extends Component {
     }
 
     render() {
-        const { comment } = this.props
+        const { comment, deactvateEdtion } = this.props
         const isNewComment =  comment.id === ''
 
         return (
@@ -76,14 +76,23 @@ class CommentForm extends Component {
                         value={this.state.author || ''}
                         onChange={e => this.handleChange(e, "author")}
                         />
-                   
-                    <button 
-                        className="btn" 
-                        type="submit" 
-                        disabled={!this.canSubmit()}
-                        >
-                        <span>Postar</span>
-                    </button>
+                    <div className="actions">
+                        <button 
+                            className="btn" 
+                            type="submit" 
+                            disabled={!this.canSubmit()}
+                            >
+                            <span>Postar</span>
+                        </button>
+                        {!isNewComment && (
+                            <button 
+                                className="btn"
+                                onClick={deactvateEdtion}
+                                >
+                                <span>Cancelar</span>
+                            </button>
+                        )}
+                    </div>
                 </form>
             </div>
         )
