@@ -31,7 +31,7 @@ class PostList extends Component {
 
                 <div>
                     {posts.length > 0 ? postsOrderBy.map((post) => (
-                      <Post key={post.id} post={post} />
+                      <Post key={post.id} post={post} forList={true}/>
                     )): null }
                 </div>
             </div>

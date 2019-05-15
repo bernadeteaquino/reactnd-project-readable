@@ -24,14 +24,21 @@ class Post extends Component {
     }
 
     render() {
-        const { post } = this.props
+        const { post, forList } = this.props
         const { id, category, title, author, body, timestamp, commentCount, voteScore } = post
 
         return (
             <div className="post">
-                <Link className="btn" to={`/posts/${id}`}>
-                    Detalhar
-                </Link>
+                {forList && (
+                    <Link className="btn" to={`/posts/${id}`}>
+                        Detalhar
+                    </Link>
+                )}
+                {!forList && (
+                    <Link className="btn" to="/">
+                        Voltar
+                    </Link>
+                )}
                 <Link className="btn" to={`/posts/edit/${id}`}>
                     Editar
                 </Link>

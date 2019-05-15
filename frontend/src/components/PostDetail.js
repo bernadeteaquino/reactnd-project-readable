@@ -30,7 +30,7 @@ class PostDetail extends Component {
         return (
             <div className="post-detail">
                 <h3>Detalhes da Postagem</h3> 
-                <Post key={post.id} post={post} />
+                <Post key={post.id} post={post} forList={false}/>
                 <CommentForm post={post} submitComment={this.addComment}/>
                 <CommentList comments={comments} post={post}/>
             </div>
