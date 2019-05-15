@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import VoteScore from './VoteScore'
 import { handleVoteOnPost, handleDeletePost } from '../actions/posts'
 import { UP_VOTE, DOWN_VOTE } from '../utils/constants'
+import { formatDate } from '../utils/Util'
 
 class Post extends Component {
 
@@ -40,7 +41,7 @@ class Post extends Component {
                 </button>
                 <div className="post-info">
                     <div className="title">{title}</div>
-                    <div>{timestamp} | {author} | {category}</div>
+                    <div>{formatDate(timestamp)} | {author} | {category}</div>
                     <p>{body}</p>
                     <div className="amount"> {commentCount} Comentário(s) | {voteScore} Voto(s)</div>
                 </div>

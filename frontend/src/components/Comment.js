@@ -5,6 +5,7 @@ import { handleEditComment, handleDeleteComment, handleVoteOnComment } from '../
 import { handleUpdateCommentCounter } from '../actions/posts'
 import { UP_VOTE, DOWN_VOTE } from '../utils/constants'
 import VoteScore from './VoteScore'
+import { formatDate } from '../utils/Util'
 
 class Comment extends Component {
     state = {
@@ -62,7 +63,7 @@ class Comment extends Component {
                     </div>
                 )}
                 <div className="comment-info">
-                    <div>{timestamp} | {author}</div>
+                    <div>{formatDate(timestamp)} | {author}</div>
                     <p>{body}</p>
                     <div className="amount"> {voteScore} Voto(s)</div>
                 </div>
