@@ -11,9 +11,14 @@ class PostListByCategory extends Component {
         return (
             <div>
                 <h3 className="by-category">Posts da categoria: <span>{category}</span></h3>
-                <Link className="btn" to={`/categories/${category}/posts/new`}>
-                    Adicionar Post à categoria
-                </Link>
+                <div className="actions">
+                    <Link className="btn" to="/">
+                        Voltar
+                    </Link>
+                    <Link className="btn" to={`/categories/${category}/posts/new`}>
+                        Adicionar Post à categoria
+                    </Link>
+                </div>
                 <PostList posts={posts} />
             </div>
         )
