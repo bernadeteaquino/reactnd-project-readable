@@ -28,7 +28,8 @@ class PostDetail extends Component {
         const { post, comments } = this.props
 
         return (
-            <div>POST detail 
+            <div className="post-detail">
+                <h3>Detalhes da Postagem</h3> 
                 <Post key={post.id} post={post} />
                 <CommentForm post={post} submitComment={this.addComment}/>
                 <CommentList comments={comments} post={post}/>

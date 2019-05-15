@@ -6,11 +6,14 @@ class CommentList extends Component {
         const { comments, post } = this.props
         
         return (
-            <ul>
+            <div className="comment-list">
+                {comments.length > 0 && (
+                    <h3>Comentário(s):</h3>
+                )}
                 {comments.length > 0 ? comments.map((comment) =>  
                     <Comment key={comment.id} comment={comment} post={post}/>
                 ): null }
-            </ul>
+            </div>
         )
     }
 }

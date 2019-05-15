@@ -47,41 +47,43 @@ class CommentForm extends Component {
     }
 
     render() {
+        const { comment } = this.props
+        const isNewComment =  comment.id === ''
+
         return (
-            <div>
-                <h3>Formulário para postagem</h3>
+            <div className="comment-form">
+                {isNewComment && (
+                    <h3>Adicionar Comentário</h3>
+                )}
+                {!isNewComment && (
+                    <h3>Editar Comentário</h3>
+                )}
                 <form onSubmit={event => this.handleSubmit(event)}>
-                    <div className="field">
-                        <textarea
-                            className="textarea"
-                            id="body"
-                            value={this.state.body || ''}
-                            maxLength={500}
-                            onChange={e => this.handleChange(e, "body")}
-                            placeholder="Conteúdo da Comentário..."
-                            />
-                    </div>
-                    <div className="field">
-                        <div className="control has-icons-left">
-                            <input
-                                className="input"
-                                type="text"
-                                id="author"
-                                value={this.state.author || ''}
-                                onChange={e => this.handleChange(e, "author")}
-                                placeholder="Autor..."
-                                />
-                        </div>
-                    </div>
-                    <div>
-                        <button 
-                            className="button is-success" 
-                            type="submit" 
-                            disabled={!this.canSubmit()}
-                            >
-                            <span>Postar</span>
-                        </button>
-                    </div>
+                    <span className="title">Conteúdo:</span>
+                    <textarea
+                        className="textarea"
+                        id="body"
+                        value={this.state.body || ''}
+                        maxLength={500}
+                        onChange={e => this.handleChange(e, "body")}
+                        />
+            
+                    <span className="title">Autor:</span>
+                    <input
+                        className="input"
+                        type="text"
+                        id="author"
+                        value={this.state.author || ''}
+                        onChange={e => this.handleChange(e, "author")}
+                        />
+                   
+                    <button 
+                        className="btn" 
+                        type="submit" 
+                        disabled={!this.canSubmit()}
+                        >
+                        <span>Postar</span>
+                    </button>
                 </form>
             </div>
         )

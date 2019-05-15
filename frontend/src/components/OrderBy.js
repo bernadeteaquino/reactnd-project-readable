@@ -7,8 +7,8 @@ class OrderBy extends Component {
         const { changeHandler, order } = this.props
 
         return (
-            <div>
-                <div>Ordenar por:</div>
+            <div className="order-by">
+                <div className="title">Ordenar por:</div>
                 <div className="radio">
                     <input 
                         type="radio" 

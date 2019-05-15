@@ -13,22 +13,21 @@ class Dashboard extends Component {
         return (
             <div>
                 <h3>Categorias:</h3>
-                <ul>
+                <div className="categories">
                     {categories.data.map((category) => (
-                        <li key={category.name} >
-                            <div>
-                                <Link className="button is-info" to={`/categories/${category.name}`}>
-                                    {category.name}
-                                </Link>
-                            </div>
-                        </li>
+                        <div key={category.name} >
+                            <Link className="btn" to={`/categories/${category.name}`}>
+                                {category.name}
+                            </Link>
+                        </div>
                     ))}
-                </ul>
-                <h3>Posts:</h3>
-                <Link 
-                    to="/posts/new"
-                    >Adicionar Postagem</Link>
+                </div>
                 <div>
+                    <h3>Posts:</h3>
+                    <Link
+                        className="btn"
+                        to="/posts/new"
+                        >Adicionar Postagem</Link>
                     <PostList posts={posts.data} />
                 </div>
             </div>

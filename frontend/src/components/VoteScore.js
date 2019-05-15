@@ -6,18 +6,19 @@ class VoteScore extends Component {
         const { like, dislike } = this.props
 
         return (
-            <div>
+            <div className="vote-score">
                 <button 
-                    className="button" 
+                    className="btn" 
                     type="button" 
                     onClick={like}
-                    >          
+                    >
                     Like
                 </button>
-                <button 
+                <button
+                    className="btn" 
                     type="button" 
                     onClick={dislike}
-                    >          
+                    >
                     Dislike
                 </button>
             </div>

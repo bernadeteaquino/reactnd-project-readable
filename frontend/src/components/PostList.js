@@ -24,16 +24,16 @@ class PostList extends Component {
         const postsOrderBy = getPostsOrderBy(posts, order)
         
         return (
-            <div>
+            <div className="post-list">
                 {posts.length > 0 && (
                     <OrderBy changeHandler={this.changeOrderBy} order={order} />
                 )}
 
-                <ul>
+                <div>
                     {posts.length > 0 ? postsOrderBy.map((post) => (
                       <Post key={post.id} post={post} />
                     )): null }
-                </ul>
+                </div>
             </div>
         )
     }

@@ -27,22 +27,23 @@ class Post extends Component {
         const { id, category, title, author, body, timestamp, commentCount, voteScore } = post
 
         return (
-            <div>
-                <div>
-                    <Link className="button is-info" to={`posts/edit/${id}`}>
-                        Editar
-                    </Link>
-                    <button 
-                        className="button is-danger is-outlined" 
-                        type="button" 
-                        onClick={this.deletePost}
-                        >
-                        Apagar
-                    </button>
+            <div className="post">
+                <Link className="btn" to={`/posts/edit/${id}`}>
+                    Editar
+                </Link>
+                <button 
+                    className="btn" 
+                    type="button" 
+                    onClick={this.deletePost}
+                    >
+                    Apagar
+                </button>
+                <div className="post-info">
+                    <div className="title">{title}</div>
+                    <div>{timestamp} | {author} | {category}</div>
+                    <p>{body}</p>
+                    <div className="amount"> {commentCount} Comentário(s) | {voteScore} Voto(s)</div>
                 </div>
-                <li key={id}>
-                    {id} - {category} - {title} - {author} - {body} - {timestamp} - {commentCount} - {voteScore}
-                </li>
                 <VoteScore like={this.like} dislike={this.dislike} />
             </div>
         )

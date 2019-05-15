@@ -43,26 +43,31 @@ class Comment extends Component {
         const { id, author, body, timestamp, voteScore } = comment
 
         return (
-            <div>
-                <li key={id}>
-                    {isEditing && ( <CommentForm comment={comment} submitComment={this.editComment} post={post}/>)}
-                    {!isEditing && (
-                        <div className="actions">
-                            <button
-                                type="button" 
-                                onClick={this.deleteComment}>
-                                Apagar
-                            </button>
-                            <button
-                                type="button" 
-                                onClick={this.actvateEdtion}>
-                                Editar
-                            </button>
-                        </div>
-                    )}
-                    <div>{id} - {author} - {body} - {timestamp} - {voteScore} - {timestamp}</div>
-                    <VoteScore like={this.like} dislike={this.dislike} />
-                </li>
+            <div key={id}>
+                {isEditing && ( <CommentForm comment={comment} submitComment={this.editComment} post={post}/>)}
+                {!isEditing && (
+                    <div className="actions">
+                        <button
+                            type="button" 
+                            className="btn"
+                            onClick={this.deleteComment}>
+                            Apagar
+                        </button>
+                        <button
+                            type="button" 
+                            className="btn"
+                            onClick={this.actvateEdtion}>
+                            Editar
+                        </button>
+                    </div>
+                )}
+                <div className="comment-info">
+                    <div>{timestamp} | {author}</div>
+                    <p>{body}</p>
+                    <div className="amount"> {voteScore} Voto(s)</div>
+                </div>
+                <VoteScore like={this.like} dislike={this.dislike} />
+                <div className="line"><hr/></div>
             </div>
         )
     }

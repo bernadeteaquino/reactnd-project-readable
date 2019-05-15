@@ -10,9 +10,9 @@ class PostListByCategory extends Component {
 
         return (
             <div>
-                <div>Posts da categoria: {category}</div>
-                <Link className="button is-info" to={`/categories/${category}/posts/new`}>
-                    Adicionar Post a categoria
+                <h3 className="by-category">Posts da categoria: <span>{category}</span></h3>
+                <Link className="btn" to={`/categories/${category}/posts/new`}>
+                    Adicionar Post à categoria
                 </Link>
                 <PostList posts={posts} />
             </div>
