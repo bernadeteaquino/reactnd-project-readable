@@ -18,16 +18,15 @@ class App extends Component {
     render() {
         return (
             <Switch>
-              <Route exact path="/" component={Dashboard} />
-              <Route exact path="/posts/edit/:postId" component={PostEdition} />
-              <Route exact path="/posts/edit/:postId" component={PostEdition} />
-              <Route exact path="/posts/new" component={PostNew} />
-              <Route exact path="/categories/:category/posts/new" component={PostNew} />
-              <Route exact path="/:category/:postId" component={PostDetail} />
-              <Route exact path="/error" component={NotFoundError} />
-              <Route exact path="/:category" component={PostListByCategory} />
-          </Switch>
-          )
+                <Route exact path="/" component={Dashboard} />
+                <Route exact path="/posts/edit/:postId" component={PostEdition} />
+                <Route exact path="/posts/new" component={PostNew} />
+                <Route exact path="/categories/:category/posts/new" component={PostNew} />
+                <Route exact path="/:category/:postId" component={PostDetail} />
+                <Route exact path="/error" component={NotFoundError} />
+                <Route exact path="/:category" component={PostListByCategory} />
+            </Switch>
+        )
     }
 }
 
